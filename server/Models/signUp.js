@@ -1,18 +1,46 @@
-import express from 'express'
-import mongoose from 'mongoose'
-const signUpSchema = mongoose.Schema({
-    emailAddress : {
-        type: String, 
-        required:true
+import express from 'express';
+import mongoose from 'mongoose';
+const StudentSchema = mongoose.Schema({
+    StudentEmailAddress : {
+        type : String,
+        required : true,    
     },
-    userName : {
-        type: String, 
-        required:true
+    StudentName : {
+        type : String,
+        required : true,    
     },
-    password : {
-        type: Number, 
-        required:true
+    StudentPassword : {
+        type : Number,
+        required : true,    
     },
-})
-const SignUpData = mongoose.model("SignUpData", signUpSchema)
-export default SignUpData;
+    isStudent : {
+        required : true, 
+        type : Boolean,
+    },
+    pic : {
+
+    }
+    
+});
+
+
+const TeacherSchema = mongoose.Schema({
+    TeacherEmailAddress : {
+        type : String,
+        required : true,    
+    },
+    TeacherName : {
+        type : String,
+        required : true,    
+    },
+    TeacherPassword : {
+        type : Number,
+        required : true,    
+    },
+    isTeacher : {
+        required : true, 
+        type : Boolean,
+    }
+});
+export const StudentData = mongoose.model("StudentData", StudentSchema);
+export const TeacherData = mongoose.model("TeacherData", TeacherSchema);
